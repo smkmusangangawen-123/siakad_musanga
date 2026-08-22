@@ -1,0 +1,6 @@
+{
+  "name": "SIAKAD Smart School Portal",
+  "description": "Sistem Informasi Akademik Sekolah Terpadu: Absensi Lokasi GPS, E-Raport PDF, Portal Guru/Siswa/Orang Tua, Perpustakaan Digital, dan Analitik Nilai Real-time",
+  "requestFramePermissions": ["geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
