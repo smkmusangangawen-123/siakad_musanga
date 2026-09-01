@@ -1,0 +1,6 @@
+{
+  "name": "SIAKAD Smart School Portal",
+  "description": "Sistem Informasi Akademik Sekolah Terpadu: Database Cloud Firestore Real-time, Absensi Lokasi GPS, E-Raport PDF, Portal Guru/Siswa/Orang Tua, Perpustakaan Digital, dan Analitik Nilai",
+  "requestFramePermissions": ["camera", "geolocation"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

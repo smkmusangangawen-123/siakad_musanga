@@ -1,0 +1,373 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User account for admin, teacher, student, or staff",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "email": { "type": "string" },
+        "role": { "type": "string" },
+        "username": { "type": "string" },
+        "password": { "type": "string" },
+        "avatar": { "type": "string" },
+        "statusAkun": { "type": "string" },
+        "phone": { "type": "string" },
+        "nisn": { "type": "string" },
+        "nip": { "type": "string" },
+        "kelasId": { "type": "string" },
+        "kelasNama": { "type": "string" },
+        "jurusanId": { "type": "string" },
+        "jurusanNama": { "type": "string" },
+        "subject": { "type": "string" },
+        "jabatan": { "type": "string" },
+        "kategoriPegawai": { "type": "string" },
+        "createdAt": { "type": "string" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["id", "name", "role"]
+    },
+    "Kelas": {
+      "title": "Kelas",
+      "description": "School class / study group",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nama": { "type": "string" },
+        "tingkat": { "type": "string" },
+        "jurusanId": { "type": "string" },
+        "waliKelasId": { "type": "string" },
+        "waliKelasNama": { "type": "string" },
+        "jumlahSiswa": { "type": "number" },
+        "tahunAjaran": { "type": "string" }
+      },
+      "required": ["id", "nama"]
+    },
+    "Jurusan": {
+      "title": "Jurusan",
+      "description": "Academic major / vocational track",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nama": { "type": "string" },
+        "singkatan": { "type": "string" },
+        "deskripsi": { "type": "string" },
+        "kepalaJurusan": { "type": "string" },
+        "kepalaJurusanId": { "type": "string" }
+      },
+      "required": ["id", "nama", "singkatan"]
+    },
+    "NilaiSiswa": {
+      "title": "NilaiSiswa",
+      "description": "Student grade record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "siswaId": { "type": "string" },
+        "siswaNama": { "type": "string" },
+        "mataPelajaranId": { "type": "string" },
+        "mataPelajaranNama": { "type": "string" },
+        "kelasId": { "type": "string" },
+        "semester": { "type": "string" },
+        "tahunAjaran": { "type": "string" },
+        "nilaiTugas": { "type": "number" },
+        "nilaiUTS": { "type": "number" },
+        "nilaiUAS": { "type": "number" },
+        "nilaiAkhir": { "type": "number" },
+        "predikat": { "type": "string" },
+        "catatan": { "type": "string" }
+      },
+      "required": ["id", "siswaId"]
+    },
+    "AbsensiRecord": {
+      "title": "AbsensiRecord",
+      "description": "Student attendance record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "siswaId": { "type": "string" },
+        "siswaNama": { "type": "string" },
+        "nisn": { "type": "string" },
+        "kelasId": { "type": "string" },
+        "kelasNama": { "type": "string" },
+        "tanggal": { "type": "string" },
+        "waktu": { "type": "string" },
+        "status": { "type": "string" },
+        "metode": { "type": "string" },
+        "keterangan": { "type": "string" },
+        "foto": { "type": "string" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" },
+        "lokasiValid": { "type": "boolean" },
+        "jarakMeter": { "type": "number" }
+      },
+      "required": ["id", "siswaId", "tanggal", "status"]
+    },
+    "AbsensiPegawaiRecord": {
+      "title": "AbsensiPegawaiRecord",
+      "description": "Staff and teacher attendance record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "pegawaiId": { "type": "string" },
+        "pegawaiNama": { "type": "string" },
+        "role": { "type": "string" },
+        "kategori": { "type": "string" },
+        "tanggal": { "type": "string" },
+        "jamMasuk": { "type": "string" },
+        "jamPulang": { "type": "string" },
+        "status": { "type": "string" },
+        "metode": { "type": "string" },
+        "keterangan": { "type": "string" },
+        "fotoMasuk": { "type": "string" },
+        "fotoPulang": { "type": "string" },
+        "lokasiMasuk": { "type": "string" },
+        "lokasiPulang": { "type": "string" }
+      },
+      "required": ["id", "pegawaiId", "tanggal", "status"]
+    },
+    "BukuDigital": {
+      "title": "BukuDigital",
+      "description": "Digital library book",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "judul": { "type": "string" },
+        "penulis": { "type": "string" },
+        "penerbit": { "type": "string" },
+        "tahun": { "type": "number" },
+        "isbn": { "type": "string" },
+        "kategori": { "type": "string" },
+        "cover": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "stok": { "type": "number" },
+        "tersedia": { "type": "number" }
+      },
+      "required": ["id", "judul"]
+    },
+    "PeminjamanBuku": {
+      "title": "PeminjamanBuku",
+      "description": "Book loan transaction",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "bukuId": { "type": "string" },
+        "bukuJudul": { "type": "string" },
+        "peminjamId": { "type": "string" },
+        "peminjamNama": { "type": "string" },
+        "peminjamRole": { "type": "string" },
+        "tanggalPinjam": { "type": "string" },
+        "tanggalHarusKembali": { "type": "string" },
+        "tanggalKembali": { "type": "string" },
+        "status": { "type": "string" },
+        "denda": { "type": "number" }
+      },
+      "required": ["id", "bukuId", "peminjamId", "status"]
+    },
+    "MateriPelajaran": {
+      "title": "MateriPelajaran",
+      "description": "Learning material",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "judul": { "type": "string" },
+        "deskripsi": { "type": "string" },
+        "mataPelajaranId": { "type": "string" },
+        "mataPelajaranNama": { "type": "string" },
+        "kelasIds": { "type": "array", "items": { "type": "string" } },
+        "guruId": { "type": "string" },
+        "guruNama": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "tanggalUpload": { "type": "string" }
+      },
+      "required": ["id", "judul"]
+    },
+    "TugasPelajaran": {
+      "title": "TugasPelajaran",
+      "description": "Assignment record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "judul": { "type": "string" },
+        "deskripsi": { "type": "string" },
+        "mataPelajaranId": { "type": "string" },
+        "mataPelajaranNama": { "type": "string" },
+        "kelasIds": { "type": "array", "items": { "type": "string" } },
+        "guruId": { "type": "string" },
+        "guruNama": { "type": "string" },
+        "tenggatWaktu": { "type": "string" },
+        "tanggalDibuat": { "type": "string" }
+      },
+      "required": ["id", "judul"]
+    },
+    "PengumpulanTugas": {
+      "title": "PengumpulanTugas",
+      "description": "Student assignment submission",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tugasId": { "type": "string" },
+        "siswaId": { "type": "string" },
+        "siswaNama": { "type": "string" },
+        "fileUrl": { "type": "string" },
+        "catatan": { "type": "string" },
+        "tanggalKumpul": { "type": "string" },
+        "nilai": { "type": "number" },
+        "catatanGuru": { "type": "string" },
+        "status": { "type": "string" }
+      },
+      "required": ["id", "tugasId", "siswaId"]
+    },
+    "ForumDiskusi": {
+      "title": "ForumDiskusi",
+      "description": "Discussion forum thread",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "judul": { "type": "string" },
+        "konten": { "type": "string" },
+        "kategori": { "type": "string" },
+        "penulisId": { "type": "string" },
+        "penulisNama": { "type": "string" },
+        "penulisRole": { "type": "string" },
+        "penulisAvatar": { "type": "string" },
+        "tanggal": { "type": "string" },
+        "pinned": { "type": "boolean" },
+        "likes": { "type": "number" },
+        "likedBy": { "type": "array", "items": { "type": "string" } },
+        "komentar": { "type": "array" }
+      },
+      "required": ["id", "judul", "konten"]
+    },
+    "NotificationLog": {
+      "title": "NotificationLog",
+      "description": "System and user notification",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "message": { "type": "string" },
+        "type": { "type": "string" },
+        "timestamp": { "type": "string" },
+        "read": { "type": "boolean" },
+        "recipientRole": { "type": "string" },
+        "recipientId": { "type": "string" }
+      },
+      "required": ["id", "title", "message"]
+    },
+    "DatabaseBackupLog": {
+      "title": "DatabaseBackupLog",
+      "description": "Database backup log record",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "tanggal": { "type": "string" },
+        "namaFile": { "type": "string" },
+        "ukuran": { "type": "string" },
+        "dibuatOleh": { "type": "string" },
+        "keterangan": { "type": "string" },
+        "totalRecord": { "type": "number" }
+      },
+      "required": ["id", "tanggal", "namaFile"]
+    },
+    "SchoolSettings": {
+      "title": "SchoolSettings",
+      "description": "School configuration, letterhead, GPS coordinate settings",
+      "type": "object",
+      "properties": {
+        "namaSekolah": { "type": "string" },
+        "npsn": { "type": "string" },
+        "nss": { "type": "string" },
+        "alamat": { "type": "string" },
+        "telepon": { "type": "string" },
+        "email": { "type": "string" },
+        "website": { "type": "string" },
+        "logoUrl": { "type": "string" },
+        "kepalaSekolah": { "type": "string" },
+        "nipKepalaSekolah": { "type": "string" },
+        "radiusMeter": { "type": "number" },
+        "latitude": { "type": "number" },
+        "longitude": { "type": "number" }
+      },
+      "required": ["namaSekolah"]
+    },
+    "MataPelajaran": {
+      "title": "MataPelajaran",
+      "description": "School curriculum subject course item with KKM and assigned teachers",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "kode": { "type": "string" },
+        "nama": { "type": "string" },
+        "kKM": { "type": "number" },
+        "guruId": { "type": "string" },
+        "guruNama": { "type": "string" },
+        "kelompok": { "type": "string" },
+        "tingkat": { "type": "string" },
+        "jurusanNama": { "type": "string" },
+        "deskripsi": { "type": "string" }
+      },
+      "required": ["id", "kode", "nama"]
+    },
+    "RaportVerification": {
+      "title": "RaportVerification",
+      "description": "Digital validation and authenticity verification records for student report cards",
+      "type": "object",
+      "properties": {
+        "validationCode": { "type": "string" },
+        "siswaId": { "type": "string" },
+        "siswaNama": { "type": "string" },
+        "nisn": { "type": "string" },
+        "nis": { "type": "string" },
+        "kelasNama": { "type": "string" },
+        "semester": { "type": "string" },
+        "tahunAjaran": { "type": "string" },
+        "nilaiRataRata": { "type": "number" },
+        "jumlahMapel": { "type": "number" },
+        "keputusan": { "type": "string" },
+        "kepalaSekolahNama": { "type": "string" },
+        "waliKelasNama": { "type": "string" },
+        "kotaTitimangsa": { "type": "string" },
+        "statusKeaslian": { "type": "string" },
+        "generatedAt": { "type": "string" },
+        "hashSignature": { "type": "string" }
+      },
+      "required": ["validationCode", "siswaId", "nisn", "tahunAjaran"]
+    }
+  },
+  "firestore": {
+    "/raport_validations/{validationId}": {
+      "schema": "RaportVerification",
+      "description": "Collection of digital report card validation tokens for authenticity verification"
+    },
+    "/subjects/{subjectId}": {
+      "schema": "MataPelajaran",
+      "description": "Collection of school curriculum subjects and teacher assignments"
+    },
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "User accounts collection"
+    },
+    "/classes/{classId}": {
+      "schema": "Kelas",
+      "description": "School classes collection"
+    },
+    "/jurusan/{jurusanId}": {
+      "schema": "Jurusan",
+      "description": "Academic majors collection"
+    },
+    "/grades/{gradeId}": {
+      "schema": "NilaiSiswa",
+      "description": "Student grade records collection"
+    },
+    "/attendance/{recordId}": {
+      "schema": "AbsensiRecord",
+      "description": "Student attendance logs collection"
+    },
+    "/school_settings/{configId}": {
+      "schema": "SchoolSettings",
+      "description": "Global school settings and kop configurations"
+    }
+  }
+}
